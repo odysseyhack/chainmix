@@ -8,12 +8,11 @@ namespace Check.Cheque.Protocol.Core.Services
 {
   public static class DocumentHash
   {
-    public static TryteString Create(byte[] document)
+    public static byte[] Create(byte[] document)
     {
       using (var sha256Hash = SHA256.Create())
       {
-        var bytes = sha256Hash.ComputeHash(document);
-        return TryteString.FromBytes(bytes);
+        return sha256Hash.ComputeHash(document);
       }
     }
   }

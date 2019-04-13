@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Security.Cryptography;
 using System.Threading.Tasks;
+using Check.Cheque.Protocol.Core.Entity;
 using Tangle.Net.Entity;
 
 namespace Check.Cheque.Protocol.Core.Repository
@@ -18,6 +17,17 @@ namespace Check.Cheque.Protocol.Core.Repository
     /// The bundle hash of the published invoice hash.
     /// Needs to be attached to the invoice to be able to find it on the DLT
     /// </returns>
-    Task<TryteString> PublishInvoiceHashAsync(byte[] document);
+    Task<TryteString> PublishInvoiceHashAsync(byte[] document, CngKey key);
+
+    /// <summary>
+    /// Reads the hashed invoide and its signature from the tangle
+    /// </summary>
+    /// <param name="bundleHash">
+    /// Location of the bundle
+    /// </param>
+    /// <returns>
+    /// The parsed payload of the bundle in byte form
+    /// </returns>
+    Task<InvoicePayload> LoadInvoiceInformationAsync(Hash bundleHash);
   }
 }
