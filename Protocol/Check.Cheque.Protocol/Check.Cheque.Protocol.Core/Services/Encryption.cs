@@ -13,5 +13,10 @@ namespace Check.Cheque.Protocol.Core.Services
 
       return CngKey.Create(CngAlgorithm.ECDsaP256, null, keyCreationParameters);
     }
+
+    public static ECDsaCng CreateSignatureScheme(CngKey key)
+    {
+      return new ECDsaCng(key) { HashAlgorithm = CngAlgorithm.Sha256 };
+    }
   }
 }

@@ -23,8 +23,8 @@ namespace Check.Cheque.Protocol.Core.Repository
     /// <inheritdoc />
     public async Task<TryteString> PublishInvoiceHashAsync(byte[] document, CngKey key)
     {
-      var signatureScheme = new ECDsaCng(key) { HashAlgorithm = CngAlgorithm.Sha256 };
-      var payload = new InvoicePayload(DocumentHash.Create(document), signatureScheme.SignData(document));
+      var payload = new InvoicePayload(DocumentHash.Create(document),
+        Encryption.CreateSignatureScheme(key).SignData(document));
 
       var bundle = new Bundle();
       bundle.AddTransfer(new Transfer
