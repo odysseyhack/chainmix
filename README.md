@@ -18,7 +18,7 @@ Check Cheque is a system based on IOTA and KVK authentication to prevent invoice
 
 ## Background
 
-<img src="https://pact.online/dist/img/cc_image2.png" width="600">
+<img src="https://pact.online/dist/img/cc_image3.png" width="600">
 
 ## Usage
 
