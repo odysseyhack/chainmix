@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CheckCheque.Models;
 using Plugin.Media;
 using Xamarin.Forms;
 
@@ -14,12 +15,33 @@ namespace CheckCheque
     [DesignTimeVisible(true)]
     public partial class MainPage : ContentPage
     {
-        private Image image;
+        private List<Invoice> invoices;
+
+        private List<Invoice> Invoices
+        {
+            get
+            {
+                return this.invoices;
+            }
+            set
+            {
+                if (this.invoices == value)
+                {
+                    return;
+                }
+
+                this.invoices = value;
+                this.OnPropertyChanged();
+            }
+        }
 
         public MainPage()
         {
             InitializeComponent();
-            image = new Image();
+
+            this.Invoices = new List<Invoice>();
+
+            this.ListOfInvoices.ItemsSource = this.Invoices;
         }
 
 
@@ -44,11 +66,26 @@ namespace CheckCheque
 
             await DisplayAlert("File Location", file.Path, "OK");
 
-            this.image.Source = ImageSource.FromStream(() =>
+            ImageSource imageSource = ImageSource.FromStream(() =>
             {
                 var stream = file.GetStream();
                 return stream;
             });
+
+            this.CreateNewInvoice(imageSource);
+        }
+
+        private void CreateNewInvoice(ImageSource imageSource)
+        {
+            if (imageSource == default(ImageSource))
+            {
+                throw new ArgumentNullException($"{nameof(imageSource)} cannot be null.");
+            }
+
+            Invoice invoice = new Invoice(imageSource, (new Guid()).ToString());
+
+            this.Invoices.Add(invoice);
+            this.OnPropertyChanged(nameof(this.Invoices));
         }
     }
 }

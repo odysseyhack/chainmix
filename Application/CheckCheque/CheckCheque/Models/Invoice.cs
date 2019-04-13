@@ -5,14 +5,18 @@ namespace CheckCheque.Models
 {
     public class Invoice
     {
-        private ImageSource imageSource;
-        private string invoiceNumber;
-        private bool isValid;
+        #region Properties and indexers
+        public string InvoiceNumber { get; private set; }
+
+        public ImageSource InvoiceImageSource { get; private set; }
+
+        public bool IsValid { get; set; }
+        #endregion Properties and indexers
 
         public Invoice(ImageSource imageSource, string invoiceNumber)
         {
-            this.imageSource = imageSource;
-            this.invoiceNumber = invoiceNumber;
+            this.InvoiceImageSource = imageSource;
+            this.InvoiceNumber = invoiceNumber;
         }
     }
 }

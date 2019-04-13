@@ -19,6 +19,8 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout BackgroundColor="Silver">
+                            <Label
+                                Text="{Binding InvoiceNumber}" />
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

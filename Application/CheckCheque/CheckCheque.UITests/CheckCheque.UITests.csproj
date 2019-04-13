@@ -32,12 +32,6 @@
     <PackageReference Include="Xamarin.UITest" Version="2.2.7" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CheckCheque.iOS\CheckCheque.iOS.csproj">
-      <Project>{7BD8213F-D788-4915-ADFC-9EF63B2C0A6C}</Project>
-      <Name>CheckCheque.iOS</Name>
-      <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
-      <Private>False</Private>
-    </ProjectReference>
     <ProjectReference Include="..\CheckCheque.Android\CheckCheque.Android.csproj">
       <Project>{6AE1D8A2-149C-4A54-B3C8-13526D8F3E1D}</Project>
       <Name>CheckCheque.Android</Name>

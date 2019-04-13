@@ -10,7 +10,6 @@ namespace CheckCheque
         {
             InitializeComponent();
 
-            //MainPage = new MainPage();
             this.MainPage = new NavigationPage(new MainPage());
         }
 
