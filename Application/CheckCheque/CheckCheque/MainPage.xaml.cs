@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using CheckCheque.ViewModels;
 using Plugin.Media;
+using Plugin.Media.Abstractions;
 using Xamarin.Forms;
 
 namespace CheckCheque
@@ -47,7 +48,7 @@ namespace CheckCheque
                 return;
             }
 
-            var file = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
+            MediaFile file = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
             {
                 Directory = "Sample",
                 Name = "test.jpg"
