@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="CheckCheque.LoginPage" 
+    BackgroundColor="#F5F5F5">
+    <ContentPage.Content>
+            <StackLayout 
+                HorizontalOptions="Center" 
+                VerticalOptions="FillAndExpand">
+                <StackLayout 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="CenterAndExpand" 
+                    Spacing="32">
+                    <StackLayout 
+                        HorizontalOptions="Center" 
+                        VerticalOptions="Start" 
+                        Spacing="8"
+                        Margin="0, 8, 0, 0">
+                        <!-- Logo of the app-->
+                        <Image Source="image_splash_logo.png"  Aspect="AspectFit" HorizontalOptions="Center" HeightRequest="300" WidthRequest="300"/>
+                        <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Text="Log in"/>
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="Center" Spacing="32">
+                        <StackLayout Spacing="8">
+                            <Entry x:Name="PasswordEntry" Placeholder="Type in password.." IsPassword="True"/>
+                            <Button Text="Log in" WidthRequest="256" Clicked="Handle_Clicked"/>
+                        </StackLayout>
+
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

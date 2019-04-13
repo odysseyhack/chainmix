@@ -3,24 +3,57 @@
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     xmlns:local="clr-namespace:CheckCheque" 
+    xmlns:converters="clr-namespace:CheckCheque.Converters"
     x:Class="CheckCheque.MainPage"
     Title="Invoices">
     <ContentPage.ToolbarItems> 
         <ToolbarItem Text="+" Clicked="Handle_AddInvoice_ClickedAsync"/>
     </ContentPage.ToolbarItems>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:InverseBooleanConverter x:Key="inverseBool" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     
     <StackLayout
         HorizontalOptions="FillAndExpand"
         VerticalOptions="FillAndExpand">
         <!-- List of invoices -->
         <ListView
-            x:Name="ListOfInvoices">
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"
+            x:Name="ListOfInvoices"
+            ItemsSource="{Binding Invoices}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout BackgroundColor="Silver">
-                            <Label
-                                Text="{Binding InvoiceNumber}" />
+                        <StackLayout 
+                            Orientation="Vertical"
+                            HeightRequest="100" 
+                            BackgroundColor="{Binding BackgroundColor}">
+                            <StackLayout 
+                                Orientation="Horizontal">
+                                <Label
+                                    HorizontalOptions="Start"
+                                    Margin="5"
+                                    TextColor="Black"
+                                    FontSize="Medium"
+                                    VerticalTextAlignment="Center"
+                                    Text="{Binding InvoiceName}" />
+                                <ActivityIndicator 
+                                    HorizontalOptions="End"
+                                    IsRunning="{Binding IsVerifying}" 
+                                    IsVisible="{Binding Isverifying}" />
+                                <Label
+                                    HorizontalOptions="End"
+                                    VerticalOptions="Center"
+                                    VerticalTextAlignment="Center"
+                                    HorizontalTextAlignment="End"
+                                    IsVisible="{Binding IsVerifying, Converter={StaticResource inverseBool}}"
+                                    TextColor="{Binding VerificationColor}"
+                                    Text="{Binding VerificationStatus}" />
+                            </StackLayout>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

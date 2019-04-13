@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CheckCheque.Models;
+using CheckCheque.ViewModels;
 using Plugin.Media;
 using Xamarin.Forms;
 
@@ -15,37 +11,33 @@ namespace CheckCheque
     [DesignTimeVisible(true)]
     public partial class MainPage : ContentPage
     {
-        private List<Invoice> invoices;
+        #region Properties and indexers
+        /// <summary>
+        /// The <see cref="InvoicesViewModel"/> for this <see cref="View"/>.
+        /// </summary>
+        private InvoicesViewModel ViewModel;
+        #endregion Properties and indexers
 
-        private List<Invoice> Invoices
-        {
-            get
-            {
-                return this.invoices;
-            }
-            set
-            {
-                if (this.invoices == value)
-                {
-                    return;
-                }
-
-                this.invoices = value;
-                this.OnPropertyChanged();
-            }
-        }
-
+        #region Constructors
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MainPage"/> class.
+        /// </summary>
         public MainPage()
         {
             InitializeComponent();
 
-            this.Invoices = new List<Invoice>();
-
-            this.ListOfInvoices.ItemsSource = this.Invoices;
+            this.ViewModel = new InvoicesViewModel();
+            this.BindingContext = this.ViewModel;
         }
+        #endregion Constructors
 
-
-        async void Handle_AddInvoice_ClickedAsync(object sender, EventArgs e)
+        #region Event handlers
+        /// <summary>
+        /// Gets triggered when the user taps on the "+"-icon to scan a new invoice.
+        /// </summary>
+        /// <param name="sender">The <see cref="object"/> that triggered the event.</param>
+        /// <param name="e">Provides details on the event.</param>
+        protected virtual async void Handle_AddInvoice_ClickedAsync(object sender, EventArgs e)
         {
             await CrossMedia.Current.Initialize();
 
@@ -72,20 +64,12 @@ namespace CheckCheque
                 return stream;
             });
 
-            this.CreateNewInvoice(imageSource);
+            this.ViewModel.CreateNewInvoice(imageSource);
+
+            this.ListOfInvoices.ItemsSource = null;
+            this.ListOfInvoices.ItemsSource = this.ViewModel.Invoices;
         }
+        #endregion Event handlers
 
-        private void CreateNewInvoice(ImageSource imageSource)
-        {
-            if (imageSource == default(ImageSource))
-            {
-                throw new ArgumentNullException($"{nameof(imageSource)} cannot be null.");
-            }
-
-            Invoice invoice = new Invoice(imageSource, (new Guid()).ToString());
-
-            this.Invoices.Add(invoice);
-            this.OnPropertyChanged(nameof(this.Invoices));
-        }
     }
 }

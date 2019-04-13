@@ -10,7 +10,7 @@ namespace CheckCheque
         {
             InitializeComponent();
 
-            this.MainPage = new NavigationPage(new MainPage());
+            this.MainPage = new NavigationPage(new LoginPage());
         }
 
         protected override void OnStart()
