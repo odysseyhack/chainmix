@@ -1,9 +1,10 @@
 ﻿using System.Threading.Tasks;
+using RestSharp;
 
 namespace Kvk.Api.Wrapper.Repository
 {
   public interface IKvkRepository
   {
-    Task<dynamic> GetByKvkNumberAsync(string kvkNumber);
+    Task<JsonObject> GetByKvkNumberAsync(string kvkNumber);
   }
 }
