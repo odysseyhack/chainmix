@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Check.Cheque.Protocol\Check.Cheque.Protocol.Core\Check.Cheque.Protocol.Core.csproj" />
+    <ProjectReference Include="..\Check.Cheque.Protocol.Core\Check.Cheque.Protocol.Core.csproj" />
   </ItemGroup>
 
 </Project>
