@@ -5,6 +5,10 @@
     xmlns:local="clr-namespace:CheckCheque" 
     x:Class="CheckCheque.MainPage"
     Title="Invoices">
+    <ContentPage.ToolbarItems> 
+        <ToolbarItem Text="+" Clicked="Handle_AddInvoice_ClickedAsync"/>
+    </ContentPage.ToolbarItems>
+    
     <StackLayout
         HorizontalOptions="FillAndExpand"
         VerticalOptions="FillAndExpand">
@@ -15,7 +19,6 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout BackgroundColor="Silver">
-                            
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
