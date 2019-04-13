@@ -32,7 +32,7 @@ namespace Check.Cheque.Protocol.Core.Services
 
       var companyPublicKey = await this.KvkRepository.GetCompanyPublicKeyAsync(invoice.KvkNumber);
       var key = CngKey.Import(companyPublicKey, CngKeyBlobFormat.EccFullPublicBlob);
-      var signatureScheme = new ECDsaCng(key) { HashAlgorithm = CngAlgorithm.Sha256 };
+      var signatureScheme = Encryption.CreateSignatureScheme(key);
 
       return signatureScheme.VerifyData(invoice.Payload, invoiceEntry.InvoiceSignature);
     }

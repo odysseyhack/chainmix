@@ -21,6 +21,11 @@ namespace Kvk.Api.Wrapper.Services
       {
         PublicKeyLookup.Add(kvkNumber, publicKey);
       }
+      else
+      {
+        PublicKeyLookup.Remove(kvkNumber);
+        PublicKeyLookup.Add(kvkNumber, publicKey);
+      }
     }
 
     public static string GetPublicKey(string kvkNumber)
