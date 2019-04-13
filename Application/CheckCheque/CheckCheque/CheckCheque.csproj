@@ -11,6 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
     <PackageReference Include="System.Security.Cryptography.Cng" Version="4.5.0" />
     <PackageReference Include="Tangle.Net.Standard" Version="2.0.3" />
     <PackageReference Include="Xamarin.Forms" Version="3.6.0.264807" />
