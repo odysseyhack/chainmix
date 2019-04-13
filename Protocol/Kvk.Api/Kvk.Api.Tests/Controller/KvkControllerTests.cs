@@ -9,6 +9,8 @@ using Kvk.Api.Wrapper.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using Newtonsoft.Json;
+using RestSharp;
 
 namespace Kvk.Api.Tests.Controller
 {
@@ -19,12 +21,12 @@ namespace Kvk.Api.Tests.Controller
     public async Task TestGetByKvkNumberReturnsJsonResponse()
     {
       var repository = new Mock<IKvkRepository>();
-      repository.Setup(r => r.GetByKvkNumberAsync(It.IsAny<string>())).ReturnsAsync("OK");
+      repository.Setup(r => r.GetByKvkNumberAsync(It.IsAny<string>())).ReturnsAsync(JsonConvert.DeserializeObject<JsonObject>("{ \"Result\": \"OK\"}"));
       var controller = new KvkController(repository.Object);
 
       var response = await controller.GetByKvkNumberAsync("123456789");
 
-      Assert.AreEqual("OK", response.Value);
+      Assert.AreEqual("{\"Result\":\"OK\"}", response.Value.ToString());
     }
 
     [TestMethod]
