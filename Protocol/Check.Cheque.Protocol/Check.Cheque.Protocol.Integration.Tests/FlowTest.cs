@@ -23,15 +23,7 @@ namespace Check.Cheque.Protocol.Integration.Tests
       var invoiceRepository = new IotaInvoiceRepository(IotaRepository);
       var kvkRepository = new RestKvkRepository(new RestClient("https://localhost:44381"));
 
-      //var companyKeys = Encryption.Create();
-      //var document = Encoding.UTF8.GetBytes("NL63ABNA0265980487");
-
-      //var bundleHash = await invoiceRepository.PublishInvoiceHashAsync(document, companyKeys);
-      //await kvkRepository.RegisterCompanyPublicKeyAsync("401196200", companyKeys);
-
-      var parsedInvoice = await ImageParser.Parse("C:\\Projects\\Odyssey\\IMG_20190413_170510.jpg");
-      parsedInvoice.Hash = new Hash("EJKEGJVZVBCPWWSBCGGJUFNSXLVAPJSIUOUHEILDEIL9QTKZPKBIUWMHPALQDQ9IDWJEJCZSSBSPKVGB9");
-      parsedInvoice.KvkNumber = "401196200";
+      var parsedInvoice = await ImageParser.Parse("C:\\Projects\\Odyssey\\IMG_20190413_192812.jpg");
 
       var invoiceVerificator = new InvoiceVerificator(invoiceRepository, kvkRepository);
       var result = await invoiceVerificator.IsValid(parsedInvoice);

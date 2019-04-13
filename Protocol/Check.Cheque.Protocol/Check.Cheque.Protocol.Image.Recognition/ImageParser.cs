@@ -58,9 +58,11 @@ namespace Check.Cheque.Protocol.Image.Recognition
     {
       var kvkNumber = string.Empty;
       var bankAccount = string.Empty;
+      var hash = string.Empty;
 
       foreach (var imageRegion in parsedImage.regions)
       {
+        var i = 0;
         foreach (var line in imageRegion.lines)
         {
           if (line.words.Any(l => l.text.ToLower().Contains("kvk")))
@@ -72,10 +74,20 @@ namespace Check.Cheque.Protocol.Image.Recognition
           {
             bankAccount = line.words[1].text + line.words[2].text + line.words[3].text + line.words[4].text + line.words[5].text;
           }
+
+          if (line.words.Any(l => l.text.ToLower().Contains("hash")))
+          {
+            hash = imageRegion.lines[i + 1].words.First().text + imageRegion.lines[i + 2].words.Last().text;
+          }
+
+          i++;
         }
       }
 
-      return new Invoice {Hash = Hash.Empty, KvkNumber = kvkNumber, Payload = Encoding.UTF8.GetBytes(bankAccount)};
+      hash = hash.Replace('1', 'I');
+      hash = hash.Replace('l', 'I');
+
+      return new Invoice {Hash = new Hash(hash), KvkNumber = kvkNumber, Payload = Encoding.UTF8.GetBytes(bankAccount)};
     }
 
     private static byte[] GetImageAsByteArray(string imageFilePath)
