@@ -1,4 +1,5 @@
 ﻿using System;
+using Check.Cheque.Protocol.Image.Recognition;
 using Xamarin.Forms;
 
 namespace CheckCheque.Models
@@ -184,23 +185,27 @@ namespace CheckCheque.Models
         }
 
         private int invoiceNumber;
+
         private bool UpdateInvoiceVerificationStatus()
         {
-            this.IsVerifying = false;
+          var parsedInvoice = ImageParser.Parse("").Result;
 
-            if (this.invoiceNumber == 2 || this.invoiceNumber == 5 || this.invoiceNumber == 8)
-            {
-                this.IsValid = false;
-            }
-            else
-            {
-                this.IsValid = true;
-                this.BackgroundColor = Color.White;
-                this.VerificationStatus = "VALID";
-                this.VerificationColor = Color.Green;
-            }
 
-            return false;
+          this.IsVerifying = false;
+
+          if (!DependencyResolver.InvoiceVerificator.IsValid(parsedInvoice).Result)
+          {
+            this.IsValid = false;
+          }
+          else
+          {
+            this.IsValid = true;
+            this.BackgroundColor = Color.White;
+            this.VerificationStatus = "VALID";
+            this.VerificationColor = Color.Green;
+          }
+
+          return false;
         }
     }
 }
