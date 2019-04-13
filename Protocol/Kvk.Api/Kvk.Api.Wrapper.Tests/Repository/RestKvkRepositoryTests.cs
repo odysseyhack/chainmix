@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Kvk.Api.Wrapper.Exception;
 using Kvk.Api.Wrapper.Repository;
@@ -35,7 +36,7 @@ namespace Kvk.Api.Wrapper.Tests.Repository
       var repository = new RestKvkRepository(client.Object);
       var responseJson = await repository.GetByKvkNumberAsync("401196200");
 
-      Assert.AreEqual("OK", responseJson.Json.ToString());
+      Assert.AreEqual("OK", responseJson.Values.First().ToString());
     }
   }
 }

@@ -41,4 +41,4 @@ You can also submit pull requests to this repository.
 If editing the README, please conform to the [standard-readme specification](https://github.com/RichardLitt/standard-readme).
 
 ## License
-[MIT License](https://github.com/odysseyhack/chainmix/blob/master/LICENSE) © PACT Care B.V.
+[MIT License](https://github.com/odysseyhack/chainmix/blob/master/LICENSE)
