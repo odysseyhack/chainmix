@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CEXEngine\CEXEngine.csproj" />
+    <PackageReference Include="Tangle.Net.Standard" Version="2.0.3" />
   </ItemGroup>
 
 </Project>
