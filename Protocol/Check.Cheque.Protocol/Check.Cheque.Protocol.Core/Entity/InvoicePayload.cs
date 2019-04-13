@@ -10,8 +10,8 @@ namespace Check.Cheque.Protocol.Core.Entity
       InvoiceSignature = invoiceSignature;
     }
 
-    private byte[] InvoiceHash { get; }
-    private byte[] InvoiceSignature { get; }
+    public byte[] InvoiceHash { get; }
+    public byte[] InvoiceSignature { get; }
 
     public TryteString ToTryteString()
     {

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
+using System.Text;
 using System.Threading.Tasks;
 using Check.Cheque.Protocol.Core.Entity;
 using Check.Cheque.Protocol.Core.Services;
