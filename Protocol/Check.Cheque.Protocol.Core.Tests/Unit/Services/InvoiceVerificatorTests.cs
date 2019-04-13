@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Security.Cryptography;
+﻿using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using Check.Cheque.Protocol.Core.Entity;
@@ -10,7 +8,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Tangle.Net.Entity;
 
-namespace Check.Cheque.Protocol.Core.Tests.Services
+namespace Check.Cheque.Protocol.Core.Tests.Unit.Services
 {
   [TestClass]
   public class InvoiceVerificatorTests

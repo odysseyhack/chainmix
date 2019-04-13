@@ -1,17 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Check.Cheque.Protocol.Core.Repository;
 using Check.Cheque.Protocol.Core.Services;
-using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Tangle.Net.Entity;
 using Tangle.Net.ProofOfWork.Service;
 using Tangle.Net.Repository;
 using Tangle.Net.Repository.Client;
 
-namespace Check.Cheque.Protocol.Core.Tests.Repository
+namespace Check.Cheque.Protocol.Core.Tests.Integration.Repository
 {
   [TestClass]
   public class IotaInvoiceRepositoryTest

@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Security.Cryptography;
-using System.Text;
+﻿using System.Security.Cryptography;
 using Check.Cheque.Protocol.Core.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Tangle.Net.Entity;
 
-namespace Check.Cheque.Protocol.Core.Tests.Services
+namespace Check.Cheque.Protocol.Core.Tests.Unit.Services
 {
   [TestClass]
   public class EncryptionTest
