@@ -15,6 +15,8 @@ namespace CheckCheque.Models
         private Color backgroundColor =  Color.Silver;
         private Color verificationColor = Color.Red;
         private string verificationStatus = "Invalid Invoice!";
+        private int invoiceNumber;
+        private string imageFilePath;
         #endregion fields
 
         #region Properties and indexers
@@ -172,23 +174,24 @@ namespace CheckCheque.Models
         }
         #endregion Properties and indexers
 
-        public Invoice(ImageSource imageSource, string invoiceId, int invoiceNumber)
+        public Invoice(ImageSource imageSource, string filePath, string invoiceId, int invoiceNumber)
         {
+            // todo check on arguments..
+
             this.InvoiceImageSource = imageSource;
             this.InvoiceId = invoiceId;
             this.InvoiceName = "Invoice Number " + invoiceNumber;
             this.invoiceNumber = invoiceNumber;
+            this.imageFilePath = filePath;
 
             this.IsVerifying = true;
 
             Device.StartTimer(TimeSpan.FromSeconds(2), this.UpdateInvoiceVerificationStatus);
         }
 
-        private int invoiceNumber;
-
         private bool UpdateInvoiceVerificationStatus()
         {
-          var parsedInvoice = ImageParser.Parse("").Result;
+          var parsedInvoice = ImageParser.Parse(this.imageFilePath).Result;
 
 
           this.IsVerifying = false;

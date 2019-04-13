@@ -64,7 +64,7 @@ namespace CheckCheque
                 return stream;
             });
 
-            this.ViewModel.CreateNewInvoice(imageSource);
+            this.ViewModel.CreateNewInvoice(imageSource, file.Path);
 
             this.ListOfInvoices.ItemsSource = null;
             this.ListOfInvoices.ItemsSource = this.ViewModel.Invoices;

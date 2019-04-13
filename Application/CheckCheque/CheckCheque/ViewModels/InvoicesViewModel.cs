@@ -46,14 +46,20 @@ namespace CheckCheque.ViewModels
         /// Creates a new <see cref="Invoice"/>-object from the given scanned image.
         /// </summary>
         /// <param name="imageSource">An <see cref="ImageSource"/> of the scanned image.</param>
-        public void CreateNewInvoice(ImageSource imageSource)
+        /// <param name="filePath">The actual path on the device to the image file.</param>
+        public void CreateNewInvoice(ImageSource imageSource, string filePath)
         {
             if (imageSource == default(ImageSource))
             {
                 throw new ArgumentNullException($"{nameof(imageSource)} cannot be null.");
             }
 
-            Invoice invoice = new Invoice(imageSource, (Guid.NewGuid()).ToString(), this.Invoices.Count + 1);
+            if (string.IsNullOrEmpty(filePath))
+            {
+                throw new ArgumentException($"{nameof(filePath)} is either null or empty.");
+            }
+
+            Invoice invoice = new Invoice(imageSource, filePath, (Guid.NewGuid()).ToString(), this.Invoices.Count + 1);
 
             List<Invoice> newList = this.Invoices;
             newList.Add(invoice);
