@@ -4,7 +4,7 @@
 
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
-Check Cheque is a system based on IOTA and KVK authentication to prevent invoice fraud in the Netherlands. The long-term goal is to expand this system to a smart contract based fraud prevention and risk minimization service, in which KVK is one of many different oracles.    
+Check Cheque is a system based on IOTA and KVK authentication to prevent invoice fraud in the Netherlands. The long-term goal is to expand this system to a smart contract-based fraud prevention and risk minimization service, in which KVK is one of many different oracles.    
 
 ---
 
@@ -18,7 +18,7 @@ Check Cheque is a system based on IOTA and KVK authentication to prevent invoice
 
 ## Background
 
-
+<img src="https://pact.online/dist/img/cc_image2.png" width="600">
 
 ## Usage
 
@@ -26,11 +26,12 @@ Install the Android APK
 
 ## Team 
 
-- [Sebastian Fuhrhop](https://github.com/Felandil)
-- [David Hawig](https://github.com/Noc2)
-- [Prateek Ropia](https://github.com/aaRopi)
 - André Fiahlo 
-- Viorica
+- Viorica Hagagg
+- [Sebastian Fuhrhop](https://github.com/Felandil)
+- [Prateek Ropia](https://github.com/aaRopi)
+- [David Hawig](https://github.com/Noc2)
+
 
 ## Contributing 
 
@@ -39,4 +40,4 @@ You can also submit pull requests to this repository.
 If editing the README, please conform to the [standard-readme specification](https://github.com/RichardLitt/standard-readme).
 
 ## License
-[MIT License](https://github.com/PACTCare/Chiota/blob/master/LICENSE) © PACT Care B.V.
+[MIT License](https://github.com/odysseyhack/chainmix/blob/master/LICENSE) © PACT Care B.V.
