@@ -3,6 +3,7 @@
 > Risk minimization and fraud prevention for modern business transaction. 
 
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
+[![BCH compliance](https://bettercodehub.com/edge/badge/odysseyhack/chainmix?branch=master)](https://bettercodehub.com/)
 
 Check Cheque is a system based on IOTA and KVK authentication to prevent invoice fraud in the Netherlands. The long-term goal is to expand this system to a smart contract-based fraud prevention and risk minimization service, in which KVK is one of many different oracles.    
 
