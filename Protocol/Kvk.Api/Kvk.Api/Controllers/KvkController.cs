@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Kvk.Api.Wrapper.Repository;
+using Kvk.Api.Wrapper.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Kvk.Api.Controllers
@@ -16,17 +17,18 @@ namespace Kvk.Api.Controllers
     }
 
     [HttpGet]
-    [Route("api/Handelsregister/by-city/{city}")]
-    public async Task<IActionResult> GetByCityAsync(string city)
-    {
-      return new JsonResult(await this.Repository.GetByCityAsync(city));
-    }
-
-    [HttpGet]
     [Route("api/Handelsregister/by-kvknumber/{kvkNumber}")]
-    public async Task<IActionResult> GetByKvkNumberAsync(string kvkNumber)
+    public async Task<JsonResult> GetByKvkNumberAsync(string kvkNumber)
     {
       return new JsonResult(await this.Repository.GetByKvkNumberAsync(kvkNumber));
+    }
+
+    [HttpPost]
+    [Route("api/PublicKeys/add/{kvkNumber}")]
+    public IActionResult AddPublicKey(string kvkNumber, [FromForm] string publicKey)
+    {
+      PublicKeyResolver.Add(kvkNumber, publicKey);
+      return new OkResult();
     }
   }
 }

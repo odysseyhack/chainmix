@@ -13,19 +13,6 @@ namespace Kvk.Api.Wrapper.Tests.Repository
   {
     [TestMethod]
     [ExpectedException(typeof(ApiException))]
-    public async Task TestClientDoesNotReturnOkResponseOnFindByCityShouldThrowException()
-    {
-      var response = new RestResponse {StatusCode = HttpStatusCode.BadRequest};
-
-      var client = new Mock<IRestClient>();
-      client.Setup(c => c.ExecuteTaskAsync(It.IsAny<IRestRequest>())).ThrowsAsync(new ApiException(response));
-
-      var repository = new RestKvkRepository(client.Object);
-      await repository.GetByCityAsync("Groningen");
-    }
-
-    [TestMethod]
-    [ExpectedException(typeof(ApiException))]
     public async Task TestClientDoesNotReturnOkResponseOnFindByKvkNumberShouldThrowException()
     {
       var response = new RestResponse {StatusCode = HttpStatusCode.BadRequest};
@@ -35,20 +22,6 @@ namespace Kvk.Api.Wrapper.Tests.Repository
 
       var repository = new RestKvkRepository(client.Object);
       await repository.GetByKvkNumberAsync("401196200");
-    }
-
-    [TestMethod]
-    public async Task TestClientReturnsOkResponseOnFindByCityShouldMapToDynamicType()
-    {
-      var response = new RestResponse {StatusCode = HttpStatusCode.OK, Content = "{ \"Json\": \"OK\" }"};
-
-      var client = new Mock<IRestClient>();
-      client.Setup(c => c.ExecuteTaskAsync(It.IsAny<IRestRequest>())).ReturnsAsync(response);
-
-      var repository = new RestKvkRepository(client.Object);
-      var responseJson = await repository.GetByCityAsync("401196200");
-
-      Assert.AreEqual("OK", responseJson.Json.ToString());
     }
 
     [TestMethod]

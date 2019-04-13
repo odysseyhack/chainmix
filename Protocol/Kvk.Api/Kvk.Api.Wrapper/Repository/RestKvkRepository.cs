@@ -1,6 +1,7 @@
 ﻿using System.Net;
 using System.Threading.Tasks;
 using Kvk.Api.Wrapper.Exception;
+using Kvk.Api.Wrapper.Services;
 using Newtonsoft.Json;
 using RestSharp;
 
@@ -16,22 +17,6 @@ namespace Kvk.Api.Wrapper.Repository
     private IRestClient Client { get; }
 
     /// <inheritdoc />
-    public async Task<dynamic> GetByCityAsync(string city)
-    {
-      var request = new RestRequest($"api/Handelsregister/by-city/{city}", Method.GET);
-      request.AddHeader("Authorization", "Token Ax&=^tx&5EM4$5jP");
-
-      var response = await this.Client.ExecuteTaskAsync(request);
-
-      if (response.StatusCode == HttpStatusCode.OK)
-      {
-        return JsonConvert.DeserializeObject<dynamic>(response.Content);
-      }
-
-      throw new ApiException(response);
-    }
-
-    /// <inheritdoc />
     public async Task<dynamic> GetByKvkNumberAsync(string kvkNumber)
     {
       var request = new RestRequest($"api/Handelsregister/by-kvknumber/{kvkNumber}", Method.GET);
@@ -41,7 +26,15 @@ namespace Kvk.Api.Wrapper.Repository
 
       if (response.StatusCode == HttpStatusCode.OK)
       {
-        return JsonConvert.DeserializeObject<dynamic>(response.Content);
+        var result = JsonConvert.DeserializeObject<JsonObject>(response.Content);
+        var publicKey = PublicKeyResolver.GetPublicKey(kvkNumber);
+
+        if (!string.IsNullOrEmpty(publicKey))
+        {
+          result.Add("publicKey", publicKey);
+        }
+
+        return result;
       }
 
       throw new ApiException(response);

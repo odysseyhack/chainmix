@@ -25,12 +25,14 @@ namespace Kvk.Api.Wrapper.Services
 
     public static string GetPublicKey(string kvkNumber)
     {
-      if (!PublicKeyLookup.ContainsKey(kvkNumber))
-      {
-        return string.Empty;
-      }
+      return !PublicKeyLookup.ContainsKey(kvkNumber)
+        ? string.Empty
+        : PublicKeyLookup.First(p => p.Key == kvkNumber).Value;
+    }
 
-      return PublicKeyLookup.First(p => p.Key == kvkNumber).Value;
+    public static dynamic AddPublicKeyToCompany(dynamic parsedJson)
+    {
+      return parsedJson;
     }
   }
 }

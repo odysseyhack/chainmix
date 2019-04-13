@@ -20,10 +20,8 @@ namespace Kvk.Api.Wrapper.Tests.Services
     }
 
     [TestMethod]
-    public void TestReadingKeyShouldReturnEmptyStringIfNotFoundAndKeyIfFound()
+    public void TestReadingKeyShouldReturnKeyIfFound()
     {
-      Assert.AreEqual("", PublicKeyResolver.GetPublicKey("123456789"));
-
       PublicKeyResolver.Add("123456789", "asdfghjkl");
       Assert.AreEqual("asdfghjkl", PublicKeyResolver.GetPublicKey("123456789"));
     }
