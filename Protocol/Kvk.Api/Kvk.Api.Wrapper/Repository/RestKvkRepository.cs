@@ -17,7 +17,7 @@ namespace Kvk.Api.Wrapper.Repository
     private IRestClient Client { get; }
 
     /// <inheritdoc />
-    public async Task<dynamic> GetByKvkNumberAsync(string kvkNumber)
+    public async Task<JsonObject> GetByKvkNumberAsync(string kvkNumber)
     {
       var request = new RestRequest($"api/Handelsregister/by-kvknumber/{kvkNumber}", Method.GET);
       request.AddHeader("Authorization", "Token Ax&=^tx&5EM4$5jP");
