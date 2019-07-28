@@ -25,7 +25,11 @@ namespace CheckCheque.Views
                 return;
             }
 
-            this.Navigation.PushAsync(new MainPage());
+            var tabPage = new TabbedPage();
+            tabPage.Children.Add(new MainPage());
+            tabPage.Children.Add(new AddInvoicesPage());
+
+            this.Navigation.PushAsync(tabPage);
         }
     }
 }
