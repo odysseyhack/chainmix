@@ -19,10 +19,6 @@
     <Folder Include="Models\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Converters\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Update="LoginPage.xaml.cs">
-      <DependentUpon>LoginPage.xaml</DependentUpon>
-    </Compile>
+    <Folder Include="Views\" />
   </ItemGroup>
 </Project>

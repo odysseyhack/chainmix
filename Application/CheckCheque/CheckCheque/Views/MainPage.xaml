@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <ContentPage 
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-    xmlns:local="clr-namespace:CheckCheque" 
+    xmlns:local="clr-namespace:CheckCheque.Views" 
     xmlns:converters="clr-namespace:CheckCheque.Converters"
-    x:Class="CheckCheque.MainPage"
+    x:Class="CheckCheque.Views.MainPage"
     Title="Invoices">
     <ContentPage.ToolbarItems> 
         <ToolbarItem Text="+" Clicked="Handle_AddInvoice_ClickedAsync"/>

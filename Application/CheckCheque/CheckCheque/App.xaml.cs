@@ -1,6 +1,5 @@
-﻿using System;
+﻿using CheckCheque.Views;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace CheckCheque
 {

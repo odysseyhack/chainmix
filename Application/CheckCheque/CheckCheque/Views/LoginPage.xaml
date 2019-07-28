@@ -2,7 +2,7 @@
 <ContentPage 
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-    x:Class="CheckCheque.LoginPage" 
+    x:Class="CheckCheque.Views.LoginPage" 
     BackgroundColor="#F5F5F5">
     <ContentPage.Content>
             <StackLayout 

@@ -1,6 +1,6 @@
 ﻿using Xamarin.Forms;
 
-namespace CheckCheque
+namespace CheckCheque.Views
 {
     public partial class LoginPage : ContentPage
     {
