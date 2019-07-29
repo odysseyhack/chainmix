@@ -2,9 +2,8 @@
 <ContentPage 
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-    xmlns:local="clr-namespace:CheckCheque.Views" 
     xmlns:converters="clr-namespace:CheckCheque.Converters"
-    x:Class="CheckCheque.Views.MainPage"
+    x:Class="CheckCheque.Views.InvoicesPage"
     Title="Invoices">
     <ContentPage.ToolbarItems> 
         <ToolbarItem Text="+" Clicked="Handle_AddInvoice_ClickedAsync"/>

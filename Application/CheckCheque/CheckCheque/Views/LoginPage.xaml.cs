@@ -9,7 +9,7 @@ namespace CheckCheque.Views
             InitializeComponent();
         }
 
-        void Handle_Clicked(object sender, System.EventArgs e)
+        protected void Handle_Clicked(object sender, System.EventArgs e)
         {
             if (string.IsNullOrEmpty(this.PasswordEntry.Text))
             {
@@ -24,12 +24,6 @@ namespace CheckCheque.Views
                 this.PasswordEntry.Text = "";
                 return;
             }
-
-            var tabPage = new TabbedPage();
-            tabPage.Children.Add(new MainPage());
-            tabPage.Children.Add(new AddInvoicesPage());
-
-            this.Navigation.PushAsync(tabPage);
         }
     }
 }

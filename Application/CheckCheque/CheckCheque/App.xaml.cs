@@ -9,7 +9,12 @@ namespace CheckCheque
         {
             InitializeComponent();
 
-            this.MainPage = new NavigationPage(new LoginPage());
+            // this.MainPage = new NavigationPage(new LoginPage());
+            var tabPage = new TabbedPage();
+            tabPage.Children.Add(new InvoicesPage());
+            tabPage.Children.Add(new AddInvoicesPage());
+
+            this.MainPage = tabPage;
         }
 
         protected override void OnStart()
