@@ -4,4 +4,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="CheckCheque.Views.AddInvoicesPage"
     Title="Add Invoices">
+    <StackLayout
+        VerticalOptions="FillAndExpand"
+        HorizontalOptions="FillAndExpand"
+        BackgroundColor="Green">
+        <Label
+            Text="Will this work?"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            TextColor="White" />
+    </StackLayout>
 </ContentPage>

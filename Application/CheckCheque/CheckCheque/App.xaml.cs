@@ -9,6 +9,10 @@ namespace CheckCheque
         {
             InitializeComponent();
 
+#if DEBUG
+            HotReloader.Current.Run(this);
+#endif
+
             // this.MainPage = new NavigationPage(new LoginPage());
             var tabPage = new TabbedPage();
             tabPage.Children.Add(new InvoicesPage());

@@ -27,7 +27,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout 
+                        <StackLayout
                             Orientation="Vertical"
                             HeightRequest="100" 
                             BackgroundColor="{Binding BackgroundColor}">
