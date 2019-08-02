@@ -3,6 +3,7 @@ using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
 using Plugin.CurrentActivity;
+using Plugin.CrossPlatformTintedImage.Android;
 
 namespace CheckCheque.Droid
 {
@@ -20,6 +21,7 @@ namespace CheckCheque.Droid
             CrossCurrentActivity.Current.Init(this, savedInstanceState);
 
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            TintedImageRenderer.Init();
             LoadApplication(new App());
         }
 

@@ -39,6 +39,10 @@ namespace CheckCheque.ViewModels
         public InvoicesViewModel()
         {
             this.Invoices = new List<Invoice>();
+
+            this.CreateNewInvoice(null);
+            this.CreateNewInvoice(null);
+            this.CreateNewInvoice(null);
         }
 
         #region Private methods
@@ -48,10 +52,10 @@ namespace CheckCheque.ViewModels
         /// <param name="imageSource">An <see cref="ImageSource"/> of the scanned image.</param>
         public void CreateNewInvoice(ImageSource imageSource)
         {
-            if (imageSource == default(ImageSource))
-            {
-                throw new ArgumentNullException($"{nameof(imageSource)} cannot be null.");
-            }
+            //if (imageSource == default(ImageSource))
+            //{
+            //    throw new ArgumentNullException($"{nameof(imageSource)} cannot be null.");
+            //}
 
             Invoice invoice = new Invoice(imageSource, (Guid.NewGuid()).ToString(), this.Invoices.Count + 1);
 
